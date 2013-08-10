@@ -8,6 +8,7 @@
 .sublime-project
 lib-cov
 logs
+node_modules
 npm-debug.log
 pids
 results

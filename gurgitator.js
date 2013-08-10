@@ -3,7 +3,7 @@ var fs = require("fs");
 var path = require("path");
 var util = require("util");
 
-var mkdirp = require('mkdirp');
+var mkdirp = require("mkdirp");
 var async = require("async");
 var optimist = require("optimist");
 var _ = require("lodash");
@@ -21,22 +21,19 @@ var parse_args = function () {
 };
 
 exports.run = function () {
-  var cwd = process.cwd(),
-    base_hook,
+  var base_hook,
     listener,
-    parsed_url,
-    series = [function (cb) { cb(); }],
-    raw_hooks = {},
     args = parse_args(),
-    _path,
-    on_room_info_cb = function () {};
+    _path;
 
   if (args._.length === 0) {
-    _path = cwd;
+    log.error("I need a path to watch.");
+    process.exit(1);
   } else if (args._.length === 1) {
     _path = args._[0];
   } else {
-    throw new Error("Invalid arguments. Only one path is allowed.");
+    log.error("Invalid arguments. Only one path is allowed.");
+    process.exit(1);
   }
   _path = path.resolve(_path);
   _path = path.normalize(_path);
@@ -50,6 +47,7 @@ exports.run = function () {
     process.exit(0);
   }
 
+  log.log("Starting up...");
   base_hook = new hooks.Hook(_path);
   listener = new Listener(_path, base_hook);
 };

@@ -8,9 +8,9 @@ var async = require("async");
 var optimist = require("optimist");
 var _ = require("lodash");
 
-var lib = require("./lib");
-var log = lib.log;
-var api = lib.api;
+var hooks = require("./lib/hooks");
+var Listener = require("./lib/listener");
+var log = require("./lib/log");
 
 
 var parse_args = function () {
@@ -22,7 +22,7 @@ var parse_args = function () {
 
 exports.run = function () {
   var cwd = process.cwd(),
-    hooker,
+    base_hook,
     listener,
     parsed_url,
     series = [function (cb) { cb(); }],
@@ -50,6 +50,6 @@ exports.run = function () {
     process.exit(0);
   }
 
-  hooker = new lib.Hooks(_path);
-  listener = new lib.Listener(_path, hooker);
+  base_hook = new hooks.Hook(_path);
+  listener = new Listener(_path, base_hook);
 };

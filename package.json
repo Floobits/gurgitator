@@ -1,0 +1,47 @@
+{
+  "name": "gurgitator",
+  "homepage": "https://github.com/Floobits/gurgitator/",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com:Floobits/gurgitator.git"
+  },
+  "contributors": [
+    "Matt Kaniaris <mkaniaris@gmail.com>",
+    "Geoff Greer <geoff@greer.fm>"
+  ],
+  "version": "0.0.1",
+  "optionalDependencies": {
+    "fsevents": ">=0.1.5"
+  },
+  "dependencies": {
+    "async": "0.2.x",
+    "lodash": "1.2.x",
+    "mkdirp": "0.3.x",
+    "open": "0.x",
+    "optimist": "0.5.x",
+    "request": "2.x",
+    "minimatch": "0.2.x"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "gurgitator": "./bin/gurgitator"
+  },
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "start": "./bin/gurgitator"
+  },
+  "bugs": {
+    "url": "https://github.com/Floobits/gurgitator/issues"
+  },
+  "licenses": [
+    {
+      "type": "Apache 2.0",
+      "url": "https://github.com/Floobits/gurgitator/blob/master/LICENSE"
+    }
+  ]
+}

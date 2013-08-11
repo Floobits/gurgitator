@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "async": "0.2.x",
+    "fs-ext": "0.3.x",
     "lodash": "1.2.x",
     "mkdirp": "0.3.x",
     "optimist": "0.5.x"

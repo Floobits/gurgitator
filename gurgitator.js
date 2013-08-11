@@ -16,7 +16,9 @@ var log = require("./lib/log");
 var parse_args = function () {
   return optimist
     .usage('Usage: $0 [path_to_watch]')
-    .describe('verbose', 'Enable debugging output.')
+    .describe('v', 'Enable debugging output.')
+    .boolean('v')
+    .default('v', false)
     .argv;
 };
 
@@ -38,7 +40,7 @@ exports.run = function () {
   _path = path.resolve(_path);
   _path = path.normalize(_path);
 
-  if (args.verbose) {
+  if (args.v) {
     log.set_log_level("debug");
   }
 

@@ -64,8 +64,8 @@ exports.run = function () {
     process.exit(0);
   };
 
-  process.on("SIGINT", exit("SIGINT"));
-  process.on("SIGTERM", exit("SIGTERM"));
+  process.on("SIGINT", function () { exit("SIGINT"); });
+  process.on("SIGTERM", function () { exit("SIGTERM"); });
 
   log.log("Starting up...");
   base_hook = new hooks.Hook(_path);

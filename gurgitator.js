@@ -24,6 +24,7 @@ var parse_args = function () {
 
 exports.run = function () {
   var base_hook,
+    exit,
     listener,
     args = parse_args(),
     _path;
@@ -48,6 +49,23 @@ exports.run = function () {
     optimist.showHelp();
     process.exit(0);
   }
+
+  exit = function (signal) {
+    log.log(util.format("Got %s. Shutting down...", signal));
+
+    try {
+      base_hook.stop();
+      listener.stop();
+    } catch (e) {
+      log.error(e);
+      process.exit(1);
+    }
+    log.log("Bye bye!");
+    process.exit(0);
+  };
+
+  process.on("SIGINT", exit("SIGINT"));
+  process.on("SIGTERM", exit("SIGTERM"));
 
   log.log("Starting up...");
   base_hook = new hooks.Hook(_path);

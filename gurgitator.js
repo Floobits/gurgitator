@@ -53,15 +53,14 @@ exports.run = function () {
   exit = function (signal) {
     log.log(util.format("Got %s. Shutting down...", signal));
 
-    try {
-      base_hook.stop();
-      listener.stop();
-    } catch (e) {
-      log.error(e);
-      process.exit(1);
-    }
-    log.log("Bye bye!");
-    process.exit(0);
+    listener.stop(function (err) {
+      if (err) {
+        log.error("Error stopping litener:", err);
+        return process.exit(1);
+      }
+      log.log("Bye bye!");
+      process.exit(0);
+    });
   };
 
   process.on("SIGINT", function () { exit("SIGINT"); });

@@ -23,10 +23,10 @@ var parse_args = function () {
 };
 
 exports.run = function () {
-  var base_hook,
+  var args = parse_args(),
+    base_hook,
     exit,
     listener,
-    args = parse_args(),
     _path;
 
   if (args._.length === 0) {
@@ -53,6 +53,12 @@ exports.run = function () {
   exit = function (signal) {
     log.log(util.format("Got %s. Shutting down...", signal));
 
+    try {
+      base_hook.stop();
+    } catch (e) {
+      log.error(e);
+    }
+
     listener.stop(function (err) {
       if (err) {
         log.error("Error stopping litener:", err);
@@ -68,5 +74,6 @@ exports.run = function () {
 
   log.log("Starting up...");
   base_hook = new hooks.Hook(_path);
-  listener = new Listener(_path, base_hook);
+  listener = new Listener(_path);
+  log.log("Hooks in %s", base_hook.path);
 };

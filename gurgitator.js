@@ -3,14 +3,14 @@ var fs = require("fs");
 var path = require("path");
 var util = require("util");
 
-var mkdirp = require("mkdirp");
-var async = require("async");
-var optimist = require("optimist");
 var _ = require("lodash");
+var async = require("async");
+var log = require("floorine");
+var mkdirp = require("mkdirp");
+var optimist = require("optimist");
 
 var hooks = require("./lib/hooks");
 var Listener = require("./lib/listener");
-var log = require("./lib/log");
 
 
 var parse_args = function () {

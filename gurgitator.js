@@ -1,33 +1,27 @@
 #!/usr/bin/env node
-var fs = require("fs");
-var path = require("path");
-var util = require("util");
+"use strict";
 
-var _ = require("lodash");
-var async = require("async");
-var log = require("floorine");
-var mkdirp = require("mkdirp");
-var optimist = require("optimist");
+const path = require("path");
+const util = require("util");
 
-var hooks = require("./lib/hooks");
-var Listener = require("./lib/listener");
+const log = require("floorine");
+const optimist = require("optimist");
 
+const hooks = require("./lib/hooks");
+const Listener = require("./lib/listener");
 
-var parse_args = function () {
-  return optimist
-    .usage('Usage: $0 [path_to_watch]')
-    .describe('v', 'Enable debugging output.')
-    .boolean('v')
-    .default('v', false)
-    .argv;
-};
 
 exports.run = function () {
-  var args = parse_args(),
-    base_hook,
-    exit,
-    listener,
-    _path;
+  let base_hook;
+  let listener;
+  let _path;
+
+  let args = optimist
+    .usage("Usage: $0 [path_to_watch]")
+    .describe("v", "Enable debugging output.")
+    .boolean("v")
+    .default("v", false)
+    .argv;
 
   if (args._.length === 0) {
     log.error("I need a path to watch.");
@@ -50,7 +44,7 @@ exports.run = function () {
     process.exit(0);
   }
 
-  exit = function (signal) {
+  let exit = function (signal) {
     log.log(util.format("Got %s. Shutting down...", signal));
 
     try {

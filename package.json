@@ -14,7 +14,7 @@
     "fsevents": ">=0.3.0"
   },
   "dependencies": {
-    "async": "0.9.x",
+    "async": "1.x",
     "floorine": "0.3.x",
     "fs-ext": ">=0.4.5",
     "lodash": "3.x",

@@ -1,8 +1,16 @@
 # gurgitator
 
+[![Floobits Status](https://floobits.com/Floobits/gurgitator.svg)](https://floobits.com/Floobits/gurgitator/redirect)
+
+[![Build Status](https://travis-ci.org/Floobits/gurgitator.svg?branch=master)](https://travis-ci.org/Floobits/gurgitator)
+
+[![#floobits on Freenode](https://img.shields.io/Freenode/%23floobits.png)](https://webchat.freenode.net/?channels=floobits)
+
+[![npm](https://img.shields.io/npm/v/gurgitator.svg)](https://www.npmjs.com/package/gurgitator)
+
 Watch for new files in a directory. Eat them and run jobs contained in them.
 
-### Development status: Pretty stable. We've been using it in production for almost a year.
+### Development status: Pretty stable. We've been using it in production for a couple of years.
 
 
 ## Installation

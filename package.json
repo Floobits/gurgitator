@@ -16,16 +16,17 @@
   "dependencies": {
     "async": "1.x",
     "floorine": "0.3.x",
-    "fs-ext": ">=0.4.5",
+    "fs-ext": ">=0.4.6",
     "lodash": "3.x",
     "mkdirp": "0.5.x",
     "optimist": "0.6.x"
   },
   "devDependencies": {
-    "eslint": "0.x"
+    "eslint": "1.x",
+    "eslint-config-floobits": "*"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=3.0"
   },
   "preferGlobal": true,
   "bin": {

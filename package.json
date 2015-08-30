@@ -16,7 +16,7 @@
   "dependencies": {
     "async": "1.x",
     "floorine": "0.3.x",
-    "fs-ext": ">=0.4.6",
+    "fs-ext": "https://github.com/ggreer/node-fs-ext/archive/nan_2.tar.gz",
     "lodash": "3.x",
     "mkdirp": "0.5.x",
     "optimist": "0.6.x"
